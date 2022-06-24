@@ -32,25 +32,25 @@ services:
       - "51813:51813"
       - "51814:51814"
       - "51815:51815"
-  spark-worker:
-    image: bitnami/spark:3.1.2
-    container_name: spark-worker-1
-#     network_mode: "host"
-    networks:
-      - our_net
-    depends_on:
-      - spark
-    environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark:7077
-      #- SPARK_WORKER_MEMORY=1G
-      #- SPARK_WORKER_CORES=1
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-      - SPARK_RPC_ENCRYPTION_ENABLED=no
-      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
-    ports:
-      - '8081:8081'
+#   spark-worker:
+#     image: bitnami/spark:3.1.2
+#     container_name: spark-worker-1
+# #     network_mode: "host"
+#     networks:
+#       - our_net
+#     depends_on:
+#       - spark
+#     environment:
+#       - SPARK_MODE=worker
+#       - SPARK_MASTER_URL=spark://spark:7077
+#       #- SPARK_WORKER_MEMORY=1G
+#       #- SPARK_WORKER_CORES=1
+#       - SPARK_RPC_AUTHENTICATION_ENABLED=no
+#       - SPARK_RPC_ENCRYPTION_ENABLED=no
+#       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+#       - SPARK_SSL_ENABLED=no
+#     ports:
+#       - '8081:8081'
 #       - "51810:51810"
 #       - "51811:51811"
 #       - "51812:51812"
