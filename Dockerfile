@@ -12,7 +12,7 @@ RUN apt install software-properties-common -y
 RUN apt update
 # RUN add-apt-repository ppa:deadsnakes/ppa
 # RUN add-apt-repository universe
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add –
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get update && apt-get install -y \
     ...packages-you-want-to-install... \
