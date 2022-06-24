@@ -11,6 +11,9 @@ RUN apt install software-properties-common -y
 # RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
 RUN apt update
 RUN add-apt-repository ppa:deadsnakes/ppa
+RUN add-apt-repository universe
+RUN apt-get update
+# RUN apt-get install python3-pip
 RUN apt install python3.9 -y
 
 CMD ["jupyter", "notebook", "--no-browser","--NotebookApp.token=''","--NotebookApp.password=''", "--ip=0.0.0.0", "--allow-root"]
