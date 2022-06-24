@@ -35,3 +35,4 @@ services:
      - ./pyspark-data:/home/jovyan/work
     ports:
       - 8888:8888
+    user: root
