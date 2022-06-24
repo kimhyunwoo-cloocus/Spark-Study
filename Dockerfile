@@ -6,6 +6,7 @@ RUN apt-get install -y gnupg2
 RUN wget https://download.docker.com/linux/ubuntu/gpg
 RUN apt-key add gpg
 RUN apt install gpg-agent -y
+RUN apt-get install -y ca-certificates wget
 RUN apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa && install python3.8
 RUN ln -s /usr/bin/pip3 /usr/bin/pip && \
