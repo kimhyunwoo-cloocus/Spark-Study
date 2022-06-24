@@ -7,7 +7,7 @@ RUN wget https://download.docker.com/linux/ubuntu/gpg
 RUN apt-key add gpg
 RUN apt install gpg-agent -y
 RUN apt install software-properties-common -y
-RUN add-apt-repository ppa:deadsnakes/ppa && install python3.8 -y
+RUN add-apt-repository ppa:deadsnakes/ppa && install python3.8
 RUN ln -s /usr/bin/pip3 /usr/bin/pip && \
     ln -s /usr/bin/python3.8 /usr/bin/python
 RUN pip install notebook==6.4.12
