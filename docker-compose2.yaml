@@ -8,9 +8,14 @@ services:
   spark:
     image: bitnami/spark:3.1.2
     container_name: spark-master
-    network_mode: "host"
-#     networks:
-#       - host
+    volumes:
+     - ./pyspark-data:/home/jovyan/work
+    ports:
+      - 8888:8888
+    user: root
+#     network_mode: "host"
+    networks:
+      - host
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -29,14 +34,14 @@ services:
   spark-worker:
     image: bitnami/spark:3.1.2
     container_name: spark-worker-1
-    network_mode: "host"
-#     networks:
-#       - host
+#     network_mode: "host"
+    networks:
+      - host
     depends_on:
       - spark
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark2.gapmoe.net:7077
+      - SPARK_MASTER_URL=spark://spark:7077
       #- SPARK_WORKER_MEMORY=1G
       #- SPARK_WORKER_CORES=1
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -51,18 +56,18 @@ services:
 #       - "51813:51813"
 #       - "51814:51814"
 #       - "51815:51815"
-  pyspark:
-    image: jupyter-spark-img
-    network_mode: "host"
-#     networks:
-#       - host
-    build: ./
-    container_name: jupyter-spark
-    depends_on:
-      - spark
-      - spark-worker
-    volumes:
-     - ./pyspark-data:/home/jovyan/work
-    ports:
-      - 8888:8888
-    user: root
+#   pyspark:
+#     image: jupyter-spark-img
+#     network_mode: "host"
+# #     networks:
+# #       - host
+#     build: ./
+#     container_name: jupyter-spark
+#     depends_on:
+#       - spark
+#       - spark-worker
+#     volumes:
+#      - ./pyspark-data:/home/jovyan/work
+#     ports:
+#       - 8888:8888
+#     user: root
