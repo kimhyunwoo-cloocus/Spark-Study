@@ -6,7 +6,8 @@ networks:
     
 services:
   spark:
-    image: bitnami/spark:3.1.2
+    image: spark-jupyter
+    build: ./
     container_name: spark-master
     volumes:
      - ./pyspark-data:/home/jovyan/work
