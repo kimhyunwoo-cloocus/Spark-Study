@@ -6,17 +6,17 @@ RUN apt-get install -y gnupg2
 # RUN wget https://download.docker.com/linux/ubuntu/gpg
 # RUN apt-key add gpg
 # RUN apt install gpg-agent -y
-RUN apt-get install -y ca-certificates wget
+# RUN apt-get install -y ca-certificates wget
 RUN apt install software-properties-common -y
 # RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
 RUN apt update
-# RUN add-apt-repository ppa:deadsnakes/ppa
+# # RUN add-apt-repository ppa:deadsnakes/ppa
+# # RUN add-apt-repository universe
+# # RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add –
+# RUN add-apt-repository main
 # RUN add-apt-repository universe
-# RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add –
-RUN add-apt-repository main
-RUN add-apt-repository universe
-RUN add-apt-repository restricted
-RUN add-apt-repository multiverse  
+# RUN add-apt-repository restricted
+# RUN add-apt-repository multiverse  
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get update && apt-get install -y \
     ...packages-you-want-to-install... \
