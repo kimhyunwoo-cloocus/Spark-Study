@@ -18,9 +18,7 @@ RUN apt update
 # RUN add-apt-repository restricted
 # RUN add-apt-repository multiverse  
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-    && apt-get update && apt-get install -y \
-    ...packages-you-want-to-install... \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get update && apt-get install -y
 RUN apt-get update
 # RUN apt-get install python3-pip
 RUN apt install python3.8 -y
