@@ -27,8 +27,8 @@ services:
   pyspark:
     image: jupyter/all-spark-notebook:notebook-6.4.12
     container_name: jupyter-spark
-    volumes:
-      - ./pyspark-data:/home/jovyan
+    #volumes:
+    #  - ./pyspark-data:/home/jovyan
     networks:
       - our_net
     ports:
