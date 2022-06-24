@@ -8,7 +8,7 @@ RUN apt-key add gpg
 RUN apt install gpg-agent -y
 RUN apt-get install -y ca-certificates wget
 RUN apt install software-properties-common -y
-RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
+# RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
 RUN apt update
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt install python3.10
