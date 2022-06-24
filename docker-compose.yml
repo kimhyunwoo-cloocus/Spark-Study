@@ -32,3 +32,4 @@ services:
       - our_net
     ports:
       - 8888:8888
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
