@@ -31,7 +31,7 @@ services:
     image: jupyter-spark-img
     build: ./
     container_name: jupyter-spark
-    #volumes:
-    #  - ./pyspark-data:/home/jovyan
+    volumes:
+     - ./pyspark-data:/home/jovyan/work
     ports:
       - 8888:8888
