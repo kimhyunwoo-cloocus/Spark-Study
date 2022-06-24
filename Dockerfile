@@ -1,4 +1,5 @@
 FROM bitnami/spark:3.1.2
+USER root
 RUN apt update && apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa && install python3.8 -y
 RUN ln -s /usr/bin/pip3 /usr/bin/pip && \
