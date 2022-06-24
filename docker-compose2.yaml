@@ -8,8 +8,9 @@ services:
   spark:
     image: bitnami/spark:3.1.2
     container_name: spark-master
-    networks:
-      - host
+    network_mode: "host"
+#     networks:
+#       - host
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -28,8 +29,9 @@ services:
   spark-worker:
     image: bitnami/spark:3.1.2
     container_name: spark-worker-1
-    networks:
-      - host
+    network_mode: "host"
+#     networks:
+#       - host
     depends_on:
       - spark
     environment:
@@ -51,8 +53,9 @@ services:
       - "51815:51815"
   pyspark:
     image: jupyter-spark-img
-    networks:
-      - host
+    network_mode: "host"
+#     networks:
+#       - host
     build: ./
     container_name: jupyter-spark
     depends_on:
