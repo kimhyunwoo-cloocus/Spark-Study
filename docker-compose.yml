@@ -25,7 +25,8 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
   pyspark:
-    image: jupyter/all-spark-notebook:notebook-6.4.12
+    image: jupyter-spark-img
+    build: .
     container_name: jupyter-spark
     #volumes:
     #  - ./pyspark-data:/home/jovyan
