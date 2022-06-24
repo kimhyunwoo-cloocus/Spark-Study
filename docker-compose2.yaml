@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   spark:
@@ -22,6 +22,8 @@ services:
   spark-worker:
     image: bitnami/spark:3.1.2
     container_name: spark-worker-1
+    depends_on:
+      - spark
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
@@ -37,6 +39,9 @@ services:
     image: jupyter-spark-img
     build: ./
     container_name: jupyter-spark
+    depends_on:
+      - spark
+      - spark-worker
     volumes:
      - ./pyspark-data:/home/jovyan/work
     ports:
