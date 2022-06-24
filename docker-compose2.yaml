@@ -2,14 +2,14 @@ version: '3'
 
 networks:
   our_net:
-    driver: host
+    driver: bridge
     
 services:
   spark:
     image: bitnami/spark:3.1.2
     container_name: spark-master
     networks:
-      - our_net
+      - host
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -29,7 +29,7 @@ services:
     image: bitnami/spark:3.1.2
     container_name: spark-worker-1
     networks:
-      - our_net
+      - host
     depends_on:
       - spark
     environment:
@@ -52,7 +52,7 @@ services:
   pyspark:
     image: jupyter-spark-img
     networks:
-      - our_net
+      - host
     build: ./
     container_name: jupyter-spark
     depends_on:
