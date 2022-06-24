@@ -26,7 +26,7 @@ services:
       - "SPARK_MASTER=spark://spark-master:7077"
   pyspark:
     image: jupyter-spark-img
-    build: .
+    build: ./
     container_name: jupyter-spark
     #volumes:
     #  - ./pyspark-data:/home/jovyan
