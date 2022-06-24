@@ -16,7 +16,7 @@ services:
     user: root
 #     network_mode: "host"
     networks:
-      - host
+      - our_net
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -37,7 +37,7 @@ services:
     container_name: spark-worker-1
 #     network_mode: "host"
     networks:
-      - host
+      - our_net
     depends_on:
       - spark
     environment:
