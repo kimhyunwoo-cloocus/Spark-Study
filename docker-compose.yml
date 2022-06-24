@@ -1,13 +1,13 @@
 version: '3'
-networks:
-  our_net:
-    driver: bridge
+#networks:
+#  our_net:
+#    driver: bridge
 services:
   spark-master:
     image: bde2020/spark-master:3.2.0-hadoop3.2
     container_name: spark-master
     networks:
-      - our_net
+      - bridge
     ports:
       - "8080:8080"
       - "7077:7077"
@@ -17,7 +17,7 @@ services:
     image: bde2020/spark-worker:3.2.0-hadoop3.2
     container_name: spark-worker-1
     networks:
-      - our_net
+      - bridge
     depends_on:
       - spark-master
     ports:
@@ -31,6 +31,6 @@ services:
     #volumes:
     #  - ./pyspark-data:/home/jovyan
     networks:
-      - our_net
+      - bridge
     ports:
       - 8888:8888
