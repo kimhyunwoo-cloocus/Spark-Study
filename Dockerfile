@@ -1,6 +1,8 @@
 FROM bitnami/spark:3.1.2
 USER root
 RUN apt update
+RUN wget https://download.docker.com/linux/ubuntu/gpg
+RUN apt-key add gpg
 RUN apt install gpg-agent -y
 RUN apt install software-properties-common -y
 RUN add-apt-repository ppa:deadsnakes/ppa && install python3.8 -y
